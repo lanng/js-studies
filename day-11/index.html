@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player</title>
+</head>
+<body>
+    <div class="player">
+        <video class="player__video viewer" src="movie.mp4"></video>
+
+        <div class="player__controls">
+            <div class="progress">
+                <div class="progress__filled"></div>
+            </div>
+            <button class="player__button toggle" title="TogglePlay"> ▶ </button>
+            <input type="range" name="volume" class="player__slider" min=0 max="1" step="0.05" value="1">
+            <input type="range" name="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1">
+            <button data-skip="-10" class="player__button"> << 10s  </button>
+            <button data-skip="25" class="player__button">25s ≫ </button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <style>
+        .player {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-color: #242424;
+        }
+
+        .player__video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .player__controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+        }
+
+        .progress {
+            flex: 1;
+            height: 5px;
+            background-color: #777;
+            cursor: pointer;
+        }
+
+        .progress__filled {
+            height: 100%;
+            width: 50%;
+            background-color: #ffc600;
+            flex: 0;
+            flex-basis: 50%;
+        }
+
+        .player__button {
+            margin: 0 10px;
+            color: #fff;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .player__slider {
+            width: 100px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: #ccc;
+            height: 5px;
+        }
+
+        .player__slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</body>
+</html>
